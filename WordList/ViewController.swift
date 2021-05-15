@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     
     @IBAction func startButtonTapped(){
         let saveData = UserDefaults.standard
-        if saveData.array(forKey: "WORD") != nil{
-            if saveData.array(forKey: "WORD")!.count > 0{
+        if saveData.array(forKey: "WORD") != nil {
+            if saveData.array(forKey: "WORD")!.count > 0 {
                 performSegue(withIdentifier: "toQuestionView", sender: nil)
             }
         } else {

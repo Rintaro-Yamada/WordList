@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListTableTableViewController: UITableViewController {
+class ListTableViewController: UITableViewController {
     
     var wordArray: [Dictionary<String, String>] = []
     
@@ -26,7 +26,7 @@ class ListTableTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if saveData.array(forKey: "WORD") != nil {
-            wordArray = saveData.array(forKey: "WORD") as! [Dictionary<String,String>]
+            wordArray = saveData.array(forKey: "WORD") as! [Dictionary<String, String>]
         }
         tableView.reloadData()
     }

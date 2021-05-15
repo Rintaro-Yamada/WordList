@@ -58,7 +58,7 @@ class QuestionViewContoroller: UIViewController {
             isAnswered = true
             //　ボタンのタイトルを変更
             nextButton.setTitle("次へ", for: .normal)
-    }
+        }
     /*
     // MARK: - Navigation
 

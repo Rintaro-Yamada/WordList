@@ -28,7 +28,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="56i-Bv-fBV" kind="presentation" id="u8V-aF-geT"/>
+                                    <segue destination="56i-Bv-fBV" kind="presentation" id="HCp-3r-abj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wwf-wN-FEn">
@@ -39,13 +39,16 @@
                                 <state key="normal" title="START">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="fB4-aW-G3e"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                     </view>
                     <connections>
-                        <segue destination="SJN-FG-SaG" kind="presentation" identifier="toQuestionView" modalPresentationStyle="fullScreen" id="xdE-1n-2aU"/>
+                        <segue destination="SJN-FG-SaG" kind="presentation" identifier="toQuestionView" modalPresentationStyle="fullScreen" id="f0E-So-NPq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -90,6 +93,9 @@
                                 <state key="normal" title="答えを表示">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonTapped" destination="SJN-FG-SaG" eventType="touchUpInside" id="Ino-ZB-9Hk"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alp-Xc-TlD">
                                 <rect key="frame" x="155" y="557" width="213" height="76"/>
@@ -103,7 +109,10 @@
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                     </view>
                     <connections>
-                        <segue destination="X4H-E0-USS" kind="presentation" identifier="toFinishView" modalPresentationStyle="fullScreen" id="3bq-yR-urE"/>
+                        <outlet property="answerLabel" destination="Alp-Xc-TlD" id="rdS-Qd-VlQ"/>
+                        <outlet property="nextButton" destination="GHR-QI-IPS" id="UNb-e7-DOd"/>
+                        <outlet property="questionLabel" destination="tkw-Ah-Oep" id="UYl-N8-HtE"/>
+                        <segue destination="X4H-E0-USS" kind="presentation" identifier="toFinishView" modalPresentationStyle="fullScreen" id="678-EL-Mwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZmT-7f-huP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -131,7 +140,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Dcw-af-UgG" kind="unwind" unwindAction="backWithSender:" id="aOr-aw-Kwz"/>
+                                    <segue destination="Dcw-af-UgG" kind="unwind" unwindAction="backWithSender:" id="DaS-rh-SVS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -147,13 +156,13 @@
         <!--一覧-->
         <scene sceneID="fea-6N-59w">
             <objects>
-                <tableViewController id="9vz-sX-rcA" customClass="ListTableTableViewController" customModule="WordList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="9vz-sX-rcA" customClass="ListTableViewController" customModule="WordList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XdS-9K-MhU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="K9K-e9-Ykx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="K9K-e9-Ykx" customClass="ListTableViewCell" customModule="WordList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K9K-e9-Ykx" id="CxT-MG-GAT">
@@ -168,7 +177,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goC-CE-tHK">
-                                            <rect key="frame" x="138" y="-1" width="160" height="70"/>
+                                            <rect key="frame" x="140" y="0.0" width="160" height="70"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -176,6 +185,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="englishLabel" destination="qrs-ae-C5y" id="Hvg-3u-beg"/>
+                                    <outlet property="japaneseLabel" destination="goC-CE-tHK" id="Pcx-Er-Edq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -235,7 +248,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="新規追加" id="pNv-kV-Jyi">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="mkY-3r-ISm"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="mkY-3r-ISm">
+                            <connections>
+                                <action selector="saveWord" destination="8o1-D7-mGU" id="Xe3-fU-aSR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="englishTextField" destination="oaw-06-K3J" id="dUd-wQ-zBf"/>
